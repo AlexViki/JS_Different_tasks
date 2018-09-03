@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>burger Menu</title>
+</head>
+<body>
+    <h1>Бургер меню</h1>
+    <div class="total">
+        <h2>Итог:</h2>
+        <button id="result">Счет</button>
+        <p>
+            Калории: <span id="kkal"></span>;
+            Цена: <span id="cost"></span>
+        </p>
+    </div>
+    <h2>Булочка:</h2>
+        <p><input class="menu" type="checkbox" checked disabled data-cost="20" data-kkal="30">Булочка</p>
+    <h2>Салати:</h2>
+        <p><input class="menu" type="checkbox" checked data-cost="10" data-kkal="5">Капуска</p>
+        <p><input class="menu" type="checkbox" data-cost="15" data-kkal="7">Салат</p>  
+        <p><input class="menu" type="checkbox" data-cost="4" data-kkal="8">Морква</p>
+    <h2>Сиры:</h2>
+        <p><input class="menu" type="checkbox" data-cost="20" data-kkal="40">Сыр - 1</p>
+        <p><input class="menu" type="checkbox" data-cost="25" data-kkal="70">Сыр - 2</p>
+        <p><input class="menu" type="checkbox" data-cost="40" data-kkal="78.6">Сыр - 3</p>
+    <h2>Мясо:</h2>
+        <p><input class="menu" type="checkbox" checked data-cost="140" data-kkal="70">Котлета</p>
+        <p><input class="menu" type="checkbox" data-cost="110" data-kkal="90">Бекон</p>
+        <p><input class="menu" type="checkbox" data-cost="180" data-kkal="100">Колбаса</p>
+        <p><input class="menu" type="checkbox" data-cost="80" data-kkal="70">Сосиска</p>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
