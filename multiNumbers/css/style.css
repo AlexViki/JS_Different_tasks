@@ -1,0 +1,10 @@
+#result-block {
+    border: 1px solid red;
+    margin: 20px;
+    padding: 10px;
+    display: inline-flex;
+}
+
+p {
+    display:inline;
+}
