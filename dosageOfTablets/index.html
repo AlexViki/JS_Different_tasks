@@ -4,33 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>dosage of tablets</title>
 </head>
 <body>
-    <p>Поcчитать общее количество таблеток за определеный период</p>
-    <p>Таблетки принимается каждый(период задать), начало приема понедельник</p>
-    <p>В будние дни принимается по 1 таблетке, в выходные по 2 ккл</p>
-    <p>Пример:</p>
-    <ul>
-        <li>1/ Mon - 0</li>
-        <li>2/ Tue - 0</li>
-        <li>3/ Wed - 1</li>
-        <li>4/ Thu - 0</li>
-        <li>5/ Fri - 0</li>
-        <li>6/ Sat - 2</li>
-        <li>7/ Sun - 0</li>
-    </ul>
+    <div class="container">
 
-    Period: <input id="period-number" type="number" value="1">
-    Period of days: <input id="period-days" type="number" value="21">
+            <div id="demo" class="carousel slide" data-ride="carousel">
 
-    Workday: <input id="workday-number-pills" type="number" value="1">
-    Weekend: <input id="weekend-number" type="number" value="2">
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                  
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/1.jpg" alt="Los Angeles">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/2.jpg" alt="Chicago">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/3.jpg" alt="New York">
+                      </div>
+                    </div>
+                  
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </a>
+                  
+                </div>
 
-    <input id="run-calculate-period" type="button" value="Calculate">
-    <hr>
-    <p id="result"></p>
+        <div class="section text-muted bg-dark">
+            <p>Поcчитать общее количество таблеток за определеный период</p>
+            <p>Таблетки принимается каждый(период задать), начало приема понедельник</p>
+            <p>В будние дни принимается по 1 таблетке, в выходные по 2 ккл</p>
+            <p>Пример:</p>   
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-dark">1/ Mon - 0</li>
+                    <li class="list-group-item list-group-item-dark">2/ Tue - 0</li>
+                    <li class="list-group-item list-group-item-dark">3/ Wed - 1</li>
+                    <li class="list-group-item list-group-item-dark">4/ Thu - 0</li>
+                    <li class="list-group-item list-group-item-dark">5/ Fri - 0</li>
+                    <li class="list-group-item list-group-item-dark">6/ Sat - 2</li>
+                    <li class="list-group-item list-group-item-dark">7/ Sun - 0</li>
+                </ul>
+
+            Period: <input id="period-number" class="form-control" type="number" value="1">
+            Period of days: <input id="period-days" class="form-control" type="number" value="21">
+
+            Workday: <input id="workday-number-pills" class="form-control" type="number" value="1">
+            Weekend: <input id="weekend-number" class="form-control" type="number" value="2">
+
+            <button id="run-calculate-period" type="button" class="btn btn-success">Calculate</button>
+            <hr>
+            <p id="result"></p>
+        </div>
+</div>
     
     <script src="js/main.js"></script>
 </body>
