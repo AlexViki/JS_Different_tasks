@@ -1,0 +1,8 @@
+.chart {
+    border: 1px solid grey;
+}
+
+canvas {
+    width: 400px;
+    height: 600px;
+}
