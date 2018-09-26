@@ -20,4 +20,4 @@ need to convert a number (for example: 569) to an object (obj={num1: 5, num2: 6,
 
 ### - task - 23_ChessBoard
 need to create a Chess Board
-![Alt text](/img/chessBoard.jpg)
+![Example](https://www.abacused.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/n/1n020.jpg)
