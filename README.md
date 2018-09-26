@@ -17,3 +17,7 @@ Computing Pi with an infinite number series
 
 ### task - 22_convertNumberToObject
 need to convert a number (for example: 569) to an object (obj={num1: 5, num2: 6, num3: 9}). (0-999)
+
+### - task - 23_ChessBoard
+need to create a Chess Board
+![Alt text](/img/chessBoard.jpg)
