@@ -28,3 +28,6 @@ hide Window with code allow showing additional model a window with additional in
 this example shows how we can hide some additional information in our website.
 please run index.html, type symbol "s" then type 'alex'.
 After that you can see some additional modal windiw, for stoping, click "Esc" or "Space"
+
+### task - 25_bookShelf
+Need to create app which will add new books to the bookshelf
