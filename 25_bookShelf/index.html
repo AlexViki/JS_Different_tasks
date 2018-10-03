@@ -9,23 +9,75 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Hello, world!</title>
+    <title>Bookshelf</title>
   </head>
   <body>
 
     <div class="container">
         <div class="row">
             <h1 class="text-center col-lg-12">Lib</h1>
-            <div class="col-lg-12 text-right">
-                <button class="book-add btn btn-primary">Add book</button>
+            <div class="col-lg-12 text-center">
+                <button class="book-addbtn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#modal-add-book">Add book</button>
             </div>
 
-            <div class="col-lg-12">
-                
+            <div class="col-lg-12 book-block">
+                <div class="row book-panel"></div>
             </div>
 
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-add-book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <lable for="book-name" class="col-sm-2 col-form-label">Book:</lable>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="book-name" id="book-name" value="Изучаем JS">
+                            </div>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group row">
+                            <lable for="book-author" class="col-sm-2 col-form-label">Author:</lable>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="book-author" id="book-author" value="Этан Браун">
+                            </div>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group row">
+                            <lable for="book-year" class="col-sm-2 col-form-label">Year:</lable>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="book-year" id="book-year" value="2017">
+                            </div>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group row">
+                            <lable for="book-link" class="col-sm-2 col-form-label">link:</lable>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="book-link" id="book-link" value="https://www.dropbox.com/s/epybhx5p9zofk3f/%D0%98%D0%B7%D1%83%D1%87%D0%B0%D0%B5%D0%BC%20JS%20-%20%D0%AD%D1%82%D0%B0%D0%BD%20%D0%91%D1%80%D0%B0%D1%83%D0%BD.pdf?dl=0">
+                            </div>
+                        </div>
+                    </form>   
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="modal-add-book-ok" type="button" class="btn btn-primary">Add book</button>
+                </div>
+            </div>
+            </div>
+        </div>
        
 
     <!-- Optional JavaScript -->

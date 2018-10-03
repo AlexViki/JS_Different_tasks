@@ -1,0 +1,20 @@
+body {
+    background: rgba(204, 204, 204, 0.329);
+}
+
+.book {
+    border: 1px solid grey;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.book-panel {
+    display: flex;
+    justify-content: left;
+    border-radius:10px;
+    margin-top: 20px;
+}
+
+.book-link {
+    margin-bottom: 14px;
+}
