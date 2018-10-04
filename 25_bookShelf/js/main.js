@@ -5,7 +5,6 @@ $(document).ready(() => {
 });
 
 let addBookToLibrary = () => {
-    //console.log('11111');
     let formData = $('form').serializeArray();
     console.log(formData);
     let inputArray = [];
@@ -13,11 +12,21 @@ let addBookToLibrary = () => {
         inputArray[formData[key]['name']] = formData[key]['value'];
     }
     console.log(inputArray);
-    let vendorCode =Math.round(Math.random() * 100000);
-    books[vendorCode] = inputArray;
-    //console.log(vendorCode);
+
+    let data = $(this).attr('data');
+
+    if (data == undefined) {
+        let vendorCode = Math.round(Math.random() * 100000);
+        books[vendorCode] = inputArray;
+        drawBook(vendorCode);
+    } else {
+        books[data] = inputArray;
+        //drawBook(data);
+    }
+    console.log(books);
     $('#modal-add-book').modal('hide');
-    drawBook(vendorCode);
+
+    
 };
 
 let drawBook = (vendor) => {
@@ -42,16 +51,36 @@ let drawBook = (vendor) => {
     vendorNumber.innerHTML = 'Vendor number: ' + vendor;
 
     let link = document.createElement('a');
-    link.className = 'book-link btn btn-success';
+    link.className = 'book-link btn-book-block btn btn-success';
     link.setAttribute('href', books[vendor]['book-link']);
     link.setAttribute('target', '_blank');
     link.innerHTML = 'Download';
 
+    let buttonEdit = document.createElement('button');
+    buttonEdit.className = 'edit btn-book-block btn btn-success';
+    buttonEdit.innerHTML = 'Edit';
+    buttonEdit.setAttribute('data', vendor);
+    buttonEdit.addEventListener('click', runBtnEdit);
+
     div.appendChild(bookName);
     div.appendChild(bookAuthor);
     div.appendChild(bookYear);
-    div.appendChild(vendorNumber)
-    div.appendChild(link)
+    div.appendChild(vendorNumber);
+    div.appendChild(link);
+    div.appendChild(buttonEdit);
     
     $('.book-panel').append(div);
+};
+
+function runBtnEdit() {
+    //console.log('edit book');
+    let data = $(this).attr('data');
+    console.log(data);
+    $('#modal-add-book').modal('show');
+    $('form #book-name').val(books[data]['book-name']);
+    $('form #book-author').val(books[data]['book-author']);
+    $('form #book-year').val(books[data]['book-year']);
+    $('form #book-link').val(books[data]['book-link']);
+
+    $('#modal-add-book-ok').attr('data', data);
 };
