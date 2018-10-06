@@ -4,7 +4,7 @@ $(document).ready(() => {
     $('#modal-add-book-ok').on('click', addBookToLibrary);
 });
 
-let addBookToLibrary = () => {
+function addBookToLibrary() {
     let formData = $('form').serializeArray();
     console.log(formData);
     let inputArray = [];
@@ -14,22 +14,23 @@ let addBookToLibrary = () => {
     console.log(inputArray);
 
     let data = $(this).attr('data');
+    console.log('===========================' + data);
 
     if (data == undefined) {
         let vendorCode = Math.round(Math.random() * 100000);
         books[vendorCode] = inputArray;
         drawBook(vendorCode);
+        //console.log(books);
     } else {
         books[data] = inputArray;
-        //drawBook(data);
+        drawBook(data);
     }
     console.log(books);
     $('#modal-add-book').modal('hide');
-
-    
 };
 
 let drawBook = (vendor) => {
+    let books = $('.book[data=' + vendor + ']');
     let div = document.createElement('div');
     div.className = 'col-lg-3 book';
     div.setAttribute('data', vendor);
@@ -60,7 +61,8 @@ let drawBook = (vendor) => {
     buttonEdit.className = 'edit btn-book-block btn btn-success';
     buttonEdit.innerHTML = 'Edit';
     buttonEdit.setAttribute('data', vendor);
-    buttonEdit.addEventListener('click', runBtnEdit);
+    //buttonEdit.addEventListener('click', runBtnEdit);
+    buttonEdit.onclick = runBtnEdit;
 
     div.appendChild(bookName);
     div.appendChild(bookAuthor);
@@ -76,11 +78,12 @@ function runBtnEdit() {
     //console.log('edit book');
     let data = $(this).attr('data');
     console.log(data);
+    // show modal windows for edit book
     $('#modal-add-book').modal('show');
     $('form #book-name').val(books[data]['book-name']);
     $('form #book-author').val(books[data]['book-author']);
     $('form #book-year').val(books[data]['book-year']);
     $('form #book-link').val(books[data]['book-link']);
-
+    // add atribute "date" for button "Add book" it's need for modifyi
     $('#modal-add-book-ok').attr('data', data);
 };
