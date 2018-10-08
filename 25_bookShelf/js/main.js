@@ -25,59 +25,74 @@ function addBookToLibrary() {
         books[data] = inputArray;
         drawBook(data);
     }
-    console.log(books);
     $('#modal-add-book').modal('hide');
+    console.log(books);
 };
 
 let drawBook = (vendor) => {
-    let books = $('.book[data=' + vendor + ']');
-    let div = document.createElement('div');
-    div.className = 'col-lg-3 book';
-    div.setAttribute('data', vendor);
-
-    let bookName = document.createElement('h3');
-    bookName.className = 'book-title';
-    bookName.innerHTML = books[vendor]['book-name'];
-
-    let bookAuthor = document.createElement('p');
-    bookAuthor.className = 'book-author';
-    bookAuthor.innerHTML = books[vendor]['book-author'];
-
-    let bookYear = document.createElement('p');
-    bookYear.className = 'book-year';
-    bookYear.innerHTML = books[vendor]['book-year'];
+    // найти конкретную книгу внутри масива
+    //let bookN = document.querySelectorAll('[data="' + vendor + '"]');
     
-    let vendorNumber = document.createElement('p');
-    vendorNumber.className = 'book-vendor-number';
-    vendorNumber.innerHTML = 'Vendor number: ' + vendor;
-
-    let link = document.createElement('a');
-    link.className = 'book-link btn-book-block btn btn-success';
-    link.setAttribute('href', books[vendor]['book-link']);
-    link.setAttribute('target', '_blank');
-    link.innerHTML = 'Download';
-
-    let buttonEdit = document.createElement('button');
-    buttonEdit.className = 'edit btn-book-block btn btn-success';
-    buttonEdit.innerHTML = 'Edit';
-    buttonEdit.setAttribute('data', vendor);
-    //buttonEdit.addEventListener('click', runBtnEdit);
-    buttonEdit.onclick = runBtnEdit;
-
-    div.appendChild(bookName);
-    div.appendChild(bookAuthor);
-    div.appendChild(bookYear);
-    div.appendChild(vendorNumber);
-    div.appendChild(link);
-    div.appendChild(buttonEdit);
+    let bookN = document.querySelector('.book');
+    bookN.querySelector('[data="' + vendor + '"]')
     
-    $('.book-panel').append(div);
+    console.log(bookN);
+    //console.log(vendor);
+
+    if (true){
+
+        let div = document.createElement('div');
+        div.className = 'col-lg-3 book';
+        div.setAttribute('data', vendor);
+
+        let bookName = document.createElement('h3');
+        bookName.className = 'book-title';
+        bookName.innerHTML = books[vendor]['book-name'];
+
+        let bookAuthor = document.createElement('p');
+        bookAuthor.className = 'book-author';
+        bookAuthor.innerHTML = books[vendor]['book-author'];
+
+        let bookYear = document.createElement('p');
+        bookYear.className = 'book-year';
+        bookYear.innerHTML = books[vendor]['book-year'];
+        
+        let vendorNumber = document.createElement('p');
+        vendorNumber.className = 'book-vendor-number';
+        vendorNumber.innerHTML = 'Vendor number: ' + vendor;
+
+        let link = document.createElement('a');
+        link.className = 'book-link btn-book-block btn btn-success';
+        link.setAttribute('href', books[vendor]['book-link']);
+        link.setAttribute('target', '_blank');
+        link.innerHTML = 'Download';
+
+        let buttonEdit = document.createElement('button');
+        buttonEdit.className = 'edit btn-book-block btn btn-success';
+        buttonEdit.innerHTML = 'Edit';
+        buttonEdit.setAttribute('data', vendor);
+        //buttonEdit.addEventListener('click', runBtnEdit);
+        buttonEdit.onclick = runBtnEdit;
+
+        div.appendChild(bookName);
+        div.appendChild(bookAuthor);
+        div.appendChild(bookYear);
+        div.appendChild(vendorNumber);
+        div.appendChild(link);
+        div.appendChild(buttonEdit);
+        
+        $('.book-panel').append(div);
+    } else {
+        let bookN = books.find('.book-name').eq(0);
+        bookN.html( books[vendor]['book-name'] );
+        $('#modal-add-book-ok').removeattr('data');
+    }
 };
 
+// кнопка редактирование свойств книги
 function runBtnEdit() {
-    //console.log('edit book');
     let data = $(this).attr('data');
-    console.log(data);
+    //console.log(data);
     // show modal windows for edit book
     $('#modal-add-book').modal('show');
     $('form #book-name').val(books[data]['book-name']);
