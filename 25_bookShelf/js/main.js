@@ -67,12 +67,18 @@ let drawBook = (vendor) => {
         //buttonEdit.addEventListener('click', runBtnEdit);
         buttonEdit.onclick = runBtnEdit;
 
+        let buttonDelete = document.createElement('button');
+        buttonDelete.className = 'delete btn-book-block btn btn-danger';
+        buttonDelete.innerHTML = 'Delete';
+        buttonDelete.onclick = deleteBook;
+        
         div.appendChild(bookName);
         div.appendChild(bookAuthor);
         div.appendChild(bookYear);
         div.appendChild(vendorNumber);
         div.appendChild(link);
         div.appendChild(buttonEdit);
+        div.appendChild(buttonDelete);
         
         $('.book-panel').append(div);
     } else {
@@ -99,4 +105,8 @@ function runBtnEdit() {
     $('form #book-link').val(books[data]['book-link']);
     // add atribute "date" for button "Add book" it's need for modifyi
     $('#modal-add-book-ok').attr('data', data);
+};
+
+function deleteBook() {
+    $(this).parent('.book').remove();
 };
