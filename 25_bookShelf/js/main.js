@@ -31,15 +31,8 @@ function addBookToLibrary() {
 
 let drawBook = (vendor) => {
     // найти конкретную книгу внутри масива
-    //let bookN = document.querySelectorAll('[data="' + vendor + '"]');
-    
-    let bookN = document.querySelector('.book');
-    bookN.querySelector('[data="' + vendor + '"]')
-    
-    console.log(bookN);
-    //console.log(vendor);
-
-    if (true){
+    var book = $('.book[data=' + vendor + ']');
+    if (book.length == 0){
 
         let div = document.createElement('div');
         div.className = 'col-lg-3 book';
@@ -83,9 +76,14 @@ let drawBook = (vendor) => {
         
         $('.book-panel').append(div);
     } else {
-        let bookN = books.find('.book-name').eq(0);
+        let bookN = book.find('.book-title').eq(0);
         bookN.html( books[vendor]['book-name'] );
-        $('#modal-add-book-ok').removeattr('data');
+        let bookYear = book.find('.book-year').eq(0);
+        bookYear.html( books[vendor]['book-year'] );
+        let bookAuthor = book.find('.book-author').eq(0);
+        bookAuthor.html( books[vendor]['book-author'] );
+
+        $('#modal-add-book-ok').removeAttr('data');
     }
 };
 
