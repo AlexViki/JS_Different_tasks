@@ -31,3 +31,6 @@ After that you can see some additional modal windiw, for stoping, click "Esc" or
 
 ### task - 25_bookShelf
 Need to create app which will add new books to the bookshelf
+
+### task - 26_comments system
+Need to create the app which will show comments to the page
